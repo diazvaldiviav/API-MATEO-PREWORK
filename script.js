@@ -43,16 +43,11 @@ async function displayConditions() {
     if (!data) return;
     const weatherCodes = data.hourly.weathercode;
 
-    content.innerHTML = `
-        <h2>Hourly Conditions</h2>
+     content.innerHTML = `
+        <h2>Hourly Temperatures</h2>
         <ul>
-            ${weatherCodes
-                .map(
-                    (code, index) =>
-                        `<li>Hour ${index + 1}: ${getWeatherDescription(
-                            code
-                        )}</li>`
-                )
+            ${temperatures
+                .map((temp, index) => `<li>Hour ${index + 1}: ${temp.toFixed(1)}°C</li>`)
                 .join("")}
         </ul>
     `;
