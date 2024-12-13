@@ -27,11 +27,11 @@ async function displayTemperature() {
     if (!data) return;
     const temperatures = data.hourly.temperature_2m;
 
-    content.innerHTML = `
+     content.innerHTML = `
         <h2>Hourly Temperatures</h2>
         <ul>
             ${temperatures
-                .map((temp, index) => `<li>Hour ${index + 1}: ${temp}Â°C</li>`)
+                .map((temp, index) => `<li>Hour ${index + 1}: ${temp.toFixed(1)}°C</li>`)
                 .join("")}
         </ul>
     `;
