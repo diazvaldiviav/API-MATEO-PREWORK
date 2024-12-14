@@ -31,7 +31,7 @@ async function displayTemperature() {
         <h2>Hourly Temperatures</h2>
         <ul>
             ${temperatures
-                .map((temp, index) => `<li>Hour ${index + 1}: ${temp}°C</li>`)
+                .map((temp, index) => `<li>Hour ${index + 1}: ${temp.toFixed(1)}°C</li>`)
                 .join("")}
         </ul>
     `;
