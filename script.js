@@ -27,11 +27,11 @@ async function displayTemperature() {
     if (!data) return;
     const temperatures = data.hourly.temperature_2m;
 
-     content.innerHTML = `
+    content.innerHTML = `
         <h2>Hourly Temperatures</h2>
         <ul>
             ${temperatures
-                .map((temp, index) => `<li>Hour ${index + 1}: ${temp.toFixed(1)}°C</li>`)
+                .map((temp, index) => `<li>Hour ${index + 1}: ${temp}°C</li>`)
                 .join("")}
         </ul>
     `;
@@ -43,11 +43,16 @@ async function displayConditions() {
     if (!data) return;
     const weatherCodes = data.hourly.weathercode;
 
-     content.innerHTML = `
-        <h2>Hourly Temperatures</h2>
+    content.innerHTML = `
+        <h2>Hourly Conditions</h2>
         <ul>
-            ${temperatures
-                .map((temp, index) => `<li>Hour ${index + 1}: ${temp.toFixed(1)}°C</li>`)
+            ${weatherCodes
+                .map(
+                    (code, index) =>
+                        `<li>Hour ${index + 1}: ${getWeatherDescription(
+                            code
+                        )}</li>`
+                )
                 .join("")}
         </ul>
     `;
